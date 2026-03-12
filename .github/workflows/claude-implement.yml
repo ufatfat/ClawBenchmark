@@ -44,8 +44,7 @@ jobs:
           echo "标题: ${ISSUE_TITLE}"
 
           # 运行 Claude Code
-          claude --allowedTools Bash,Read,Write,Edit,Glob,Grep "
-          你是 ClawBenchmark 项目的全栈工程师。请根据以下 Issue 实现代码。
+          claude --allowedTools Bash,Read,Write,Edit,Glob,Grep -p "你是 ClawBenchmark 项目的全栈工程师。请根据以下 Issue 实现代码。
 
           ## Issue #${ISSUE_NUMBER}
           标题: ${ISSUE_TITLE}
@@ -60,8 +59,7 @@ jobs:
           4. 实现功能代码
           5. 确保代码没有语法错误
           6. 不要运行 dev server 或任何长时间运行的命令
-          7. 完成后简要说明你做了什么
-          "
+          7. 完成后简要说明你做了什么"
 
       - name: Check for changes and create PR
         env:
