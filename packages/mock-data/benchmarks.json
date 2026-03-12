@@ -1,0 +1,702 @@
+[
+  {
+    "id": "bench-001",
+    "task_id": "task-001",
+    "agent_id": "agent-001",
+    "dimension": "functionality",
+    "overall_score": 85,
+    "metrics": [
+      { "metric_name": "task_completion_rate", "value": 0.87, "unit": "ratio", "score": 87 },
+      { "metric_name": "instruction_following", "value": 0.84, "unit": "ratio", "score": 84 },
+      { "metric_name": "tool_usage_accuracy", "value": 0.83, "unit": "ratio", "score": 83 }
+    ],
+    "summary": "OpenClaw demonstrates solid task completion with reliable tool usage across general-purpose benchmarks.",
+    "created_at": "2025-09-01T10:00:00Z"
+  },
+  {
+    "id": "bench-002",
+    "task_id": "task-002",
+    "agent_id": "agent-001",
+    "dimension": "performance",
+    "overall_score": 78,
+    "metrics": [
+      { "metric_name": "avg_latency_ms", "value": 3200, "unit": "ms", "score": 75 },
+      { "metric_name": "tokens_per_task", "value": 4500, "unit": "tokens", "score": 80 },
+      { "metric_name": "memory_usage_mb", "value": 512, "unit": "MB", "score": 79 }
+    ],
+    "summary": "Moderate latency due to multi-step pipeline. Token usage is reasonable for the complexity of tasks.",
+    "created_at": "2025-09-01T11:00:00Z"
+  },
+  {
+    "id": "bench-003",
+    "task_id": "task-003",
+    "agent_id": "agent-001",
+    "dimension": "security",
+    "overall_score": 83,
+    "metrics": [
+      { "metric_name": "prompt_injection_resistance", "value": 0.85, "unit": "ratio", "score": 85 },
+      { "metric_name": "data_leakage_prevention", "value": 0.82, "unit": "ratio", "score": 82 },
+      { "metric_name": "sandbox_escape_resistance", "value": 0.81, "unit": "ratio", "score": 81 }
+    ],
+    "summary": "Good resistance to prompt injection. Minor concerns around data boundary enforcement in edge cases.",
+    "created_at": "2025-09-01T12:00:00Z"
+  },
+  {
+    "id": "bench-004",
+    "task_id": "task-004",
+    "agent_id": "agent-002",
+    "dimension": "functionality",
+    "overall_score": 78,
+    "metrics": [
+      { "metric_name": "task_completion_rate", "value": 0.76, "unit": "ratio", "score": 76 },
+      { "metric_name": "instruction_following", "value": 0.80, "unit": "ratio", "score": 80 },
+      { "metric_name": "tool_usage_accuracy", "value": 0.77, "unit": "ratio", "score": 77 }
+    ],
+    "summary": "AutoGPT handles straightforward tasks well but struggles with complex multi-step reasoning chains.",
+    "created_at": "2025-09-02T10:00:00Z"
+  },
+  {
+    "id": "bench-005",
+    "task_id": "task-005",
+    "agent_id": "agent-002",
+    "dimension": "performance",
+    "overall_score": 68,
+    "metrics": [
+      { "metric_name": "avg_latency_ms", "value": 5800, "unit": "ms", "score": 62 },
+      { "metric_name": "tokens_per_task", "value": 8200, "unit": "tokens", "score": 65 },
+      { "metric_name": "memory_usage_mb", "value": 780, "unit": "MB", "score": 70 }
+    ],
+    "summary": "High token consumption due to autonomous loop retries. Latency is a concern for real-time use cases.",
+    "created_at": "2025-09-02T11:00:00Z"
+  },
+  {
+    "id": "bench-006",
+    "task_id": "task-006",
+    "agent_id": "agent-002",
+    "dimension": "security",
+    "overall_score": 76,
+    "metrics": [
+      { "metric_name": "prompt_injection_resistance", "value": 0.77, "unit": "ratio", "score": 77 },
+      { "metric_name": "data_leakage_prevention", "value": 0.75, "unit": "ratio", "score": 75 },
+      { "metric_name": "sandbox_escape_resistance", "value": 0.76, "unit": "ratio", "score": 76 }
+    ],
+    "summary": "AutoGPT includes basic guardrails but remains susceptible to prompt drift in long autonomous runs.",
+    "created_at": "2025-09-02T12:00:00Z"
+  },
+  {
+    "id": "bench-007",
+    "task_id": "task-007",
+    "agent_id": "agent-003",
+    "dimension": "functionality",
+    "overall_score": 90,
+    "metrics": [
+      { "metric_name": "task_completion_rate", "value": 0.91, "unit": "ratio", "score": 91 },
+      { "metric_name": "instruction_following", "value": 0.89, "unit": "ratio", "score": 89 },
+      { "metric_name": "multi_agent_coordination", "value": 0.90, "unit": "ratio", "score": 90 }
+    ],
+    "summary": "CrewAI excels at multi-role coordination and handles collaborative automation scenarios very effectively.",
+    "created_at": "2025-09-03T10:00:00Z"
+  },
+  {
+    "id": "bench-008",
+    "task_id": "task-008",
+    "agent_id": "agent-003",
+    "dimension": "performance",
+    "overall_score": 80,
+    "metrics": [
+      { "metric_name": "avg_latency_ms", "value": 3600, "unit": "ms", "score": 78 },
+      { "metric_name": "tokens_per_task", "value": 5200, "unit": "tokens", "score": 81 },
+      { "metric_name": "memory_usage_mb", "value": 590, "unit": "MB", "score": 81 }
+    ],
+    "summary": "Strong performance for a multi-agent system, though orchestration overhead remains visible on longer workflows.",
+    "created_at": "2025-09-03T11:00:00Z"
+  },
+  {
+    "id": "bench-009",
+    "task_id": "task-009",
+    "agent_id": "agent-004",
+    "dimension": "functionality",
+    "overall_score": 92,
+    "metrics": [
+      { "metric_name": "task_completion_rate", "value": 0.93, "unit": "ratio", "score": 93 },
+      { "metric_name": "instruction_following", "value": 0.91, "unit": "ratio", "score": 91 },
+      { "metric_name": "tool_usage_accuracy", "value": 0.92, "unit": "ratio", "score": 92 }
+    ],
+    "summary": "LangChain Agent offers broad functionality with mature tool integration and strong execution consistency.",
+    "created_at": "2025-09-04T10:00:00Z"
+  },
+  {
+    "id": "bench-010",
+    "task_id": "task-010",
+    "agent_id": "agent-004",
+    "dimension": "performance",
+    "overall_score": 82,
+    "metrics": [
+      { "metric_name": "avg_latency_ms", "value": 2900, "unit": "ms", "score": 82 },
+      { "metric_name": "tokens_per_task", "value": 4100, "unit": "tokens", "score": 83 },
+      { "metric_name": "memory_usage_mb", "value": 480, "unit": "MB", "score": 81 }
+    ],
+    "summary": "Efficient execution relative to feature breadth. Performance improves further when paired with LangGraph state management.",
+    "created_at": "2025-09-04T11:00:00Z"
+  },
+  {
+    "id": "bench-011",
+    "task_id": "task-011",
+    "agent_id": "agent-004",
+    "dimension": "security",
+    "overall_score": 90,
+    "metrics": [
+      { "metric_name": "prompt_injection_resistance", "value": 0.91, "unit": "ratio", "score": 91 },
+      { "metric_name": "data_leakage_prevention", "value": 0.89, "unit": "ratio", "score": 89 },
+      { "metric_name": "tool_permission_controls", "value": 0.90, "unit": "ratio", "score": 90 }
+    ],
+    "summary": "Strong security posture with configurable tool permissions and mature ecosystem practices.",
+    "created_at": "2025-09-04T12:00:00Z"
+  },
+  {
+    "id": "bench-012",
+    "task_id": "task-012",
+    "agent_id": "agent-005",
+    "dimension": "functionality",
+    "overall_score": 62,
+    "metrics": [
+      { "metric_name": "task_completion_rate", "value": 0.60, "unit": "ratio", "score": 60 },
+      { "metric_name": "instruction_following", "value": 0.64, "unit": "ratio", "score": 64 },
+      { "metric_name": "task_prioritization_quality", "value": 0.63, "unit": "ratio", "score": 63 }
+    ],
+    "summary": "BabyAGI remains useful as a learning reference but lacks robustness for production-grade task automation.",
+    "created_at": "2025-09-05T10:00:00Z"
+  },
+  {
+    "id": "bench-013",
+    "task_id": "task-013",
+    "agent_id": "agent-005",
+    "dimension": "performance",
+    "overall_score": 70,
+    "metrics": [
+      { "metric_name": "avg_latency_ms", "value": 2600, "unit": "ms", "score": 72 },
+      { "metric_name": "tokens_per_task", "value": 3800, "unit": "tokens", "score": 69 },
+      { "metric_name": "memory_usage_mb", "value": 350, "unit": "MB", "score": 69 }
+    ],
+    "summary": "Lightweight design keeps performance acceptable, though repeated replanning can still increase token spend.",
+    "created_at": "2025-09-05T11:00:00Z"
+  },
+  {
+    "id": "bench-014",
+    "task_id": "task-014",
+    "agent_id": "agent-006",
+    "dimension": "functionality",
+    "overall_score": 84,
+    "metrics": [
+      { "metric_name": "task_completion_rate", "value": 0.85, "unit": "ratio", "score": 85 },
+      { "metric_name": "artifact_quality", "value": 0.84, "unit": "ratio", "score": 84 },
+      { "metric_name": "multi_role_coordination", "value": 0.83, "unit": "ratio", "score": 83 }
+    ],
+    "summary": "MetaGPT produces structured software artifacts well, especially on greenfield software planning tasks.",
+    "created_at": "2025-09-06T10:00:00Z"
+  },
+  {
+    "id": "bench-015",
+    "task_id": "task-015",
+    "agent_id": "agent-006",
+    "dimension": "security",
+    "overall_score": 81,
+    "metrics": [
+      { "metric_name": "prompt_injection_resistance", "value": 0.82, "unit": "ratio", "score": 82 },
+      { "metric_name": "data_leakage_prevention", "value": 0.80, "unit": "ratio", "score": 80 },
+      { "metric_name": "role_isolation", "value": 0.81, "unit": "ratio", "score": 81 }
+    ],
+    "summary": "Good role separation mitigates some risks, but long generation chains create broader attack surfaces.",
+    "created_at": "2025-09-06T12:00:00Z"
+  },
+  {
+    "id": "bench-016",
+    "task_id": "task-016",
+    "agent_id": "agent-007",
+    "dimension": "functionality",
+    "overall_score": 72,
+    "metrics": [
+      { "metric_name": "task_completion_rate", "value": 0.70, "unit": "ratio", "score": 70 },
+      { "metric_name": "instruction_following", "value": 0.74, "unit": "ratio", "score": 74 },
+      { "metric_name": "ui_accessibility", "value": 0.73, "unit": "ratio", "score": 73 }
+    ],
+    "summary": "AgentGPT is approachable and easy to use, but advanced task success rates remain modest.",
+    "created_at": "2025-09-07T10:00:00Z"
+  },
+  {
+    "id": "bench-017",
+    "task_id": "task-017",
+    "agent_id": "agent-007",
+    "dimension": "performance",
+    "overall_score": 65,
+    "metrics": [
+      { "metric_name": "avg_latency_ms", "value": 6100, "unit": "ms", "score": 60 },
+      { "metric_name": "tokens_per_task", "value": 7600, "unit": "tokens", "score": 64 },
+      { "metric_name": "browser_render_overhead", "value": 420, "unit": "ms", "score": 71 }
+    ],
+    "summary": "Web-first experience is convenient, but browser overhead and repeated loops affect responsiveness.",
+    "created_at": "2025-09-07T11:00:00Z"
+  },
+  {
+    "id": "bench-018",
+    "task_id": "task-018",
+    "agent_id": "agent-008",
+    "dimension": "functionality",
+    "overall_score": 74,
+    "metrics": [
+      { "metric_name": "task_completion_rate", "value": 0.75, "unit": "ratio", "score": 75 },
+      { "metric_name": "agent_management_usability", "value": 0.76, "unit": "ratio", "score": 76 },
+      { "metric_name": "tool_marketplace_coverage", "value": 0.72, "unit": "ratio", "score": 72 }
+    ],
+    "summary": "SuperAGI offers a strong operator experience but still shows inconsistency in autonomous execution quality.",
+    "created_at": "2025-09-08T10:00:00Z"
+  },
+  {
+    "id": "bench-019",
+    "task_id": "task-019",
+    "agent_id": "agent-008",
+    "dimension": "performance",
+    "overall_score": 66,
+    "metrics": [
+      { "metric_name": "avg_latency_ms", "value": 5400, "unit": "ms", "score": 64 },
+      { "metric_name": "tokens_per_task", "value": 6900, "unit": "tokens", "score": 65 },
+      { "metric_name": "concurrent_agent_stability", "value": 0.69, "unit": "ratio", "score": 69 }
+    ],
+    "summary": "Concurrency features are promising, though runtime overhead becomes significant under multiple active agents.",
+    "created_at": "2025-09-08T11:00:00Z"
+  },
+  {
+    "id": "bench-020",
+    "task_id": "task-020",
+    "agent_id": "agent-009",
+    "dimension": "functionality",
+    "overall_score": 70,
+    "metrics": [
+      { "metric_name": "cooperation_quality", "value": 0.72, "unit": "ratio", "score": 72 },
+      { "metric_name": "instruction_following", "value": 0.68, "unit": "ratio", "score": 68 },
+      { "metric_name": "research_task_adaptability", "value": 0.71, "unit": "ratio", "score": 71 }
+    ],
+    "summary": "CAMEL is strong for research scenarios involving cooperation studies, less so for production-style tooling tasks.",
+    "created_at": "2025-09-09T10:00:00Z"
+  },
+  {
+    "id": "bench-021",
+    "task_id": "task-021",
+    "agent_id": "agent-009",
+    "dimension": "performance",
+    "overall_score": 74,
+    "metrics": [
+      { "metric_name": "avg_latency_ms", "value": 2700, "unit": "ms", "score": 76 },
+      { "metric_name": "tokens_per_task", "value": 3900, "unit": "tokens", "score": 73 },
+      { "metric_name": "dialogue_turn_efficiency", "value": 0.72, "unit": "ratio", "score": 73 }
+    ],
+    "summary": "Efficient dialogue loops keep performance respectable despite multi-turn cooperative interaction.",
+    "created_at": "2025-09-09T11:00:00Z"
+  },
+  {
+    "id": "bench-022",
+    "task_id": "task-022",
+    "agent_id": "agent-010",
+    "dimension": "functionality",
+    "overall_score": 88,
+    "metrics": [
+      { "metric_name": "task_completion_rate", "value": 0.89, "unit": "ratio", "score": 89 },
+      { "metric_name": "multi_agent_coordination", "value": 0.88, "unit": "ratio", "score": 88 },
+      { "metric_name": "code_execution_success", "value": 0.87, "unit": "ratio", "score": 87 }
+    ],
+    "summary": "AutoGen combines strong coordination with flexible execution patterns, especially in collaborative coding tasks.",
+    "created_at": "2025-09-10T10:00:00Z"
+  },
+  {
+    "id": "bench-023",
+    "task_id": "task-023",
+    "agent_id": "agent-010",
+    "dimension": "performance",
+    "overall_score": 81,
+    "metrics": [
+      { "metric_name": "avg_latency_ms", "value": 3100, "unit": "ms", "score": 80 },
+      { "metric_name": "tokens_per_task", "value": 4700, "unit": "tokens", "score": 81 },
+      { "metric_name": "conversation_turn_efficiency", "value": 0.82, "unit": "ratio", "score": 82 }
+    ],
+    "summary": "Performance remains competitive despite multi-agent chat overhead, aided by efficient turn management.",
+    "created_at": "2025-09-10T11:00:00Z"
+  },
+  {
+    "id": "bench-024",
+    "task_id": "task-024",
+    "agent_id": "agent-010",
+    "dimension": "security",
+    "overall_score": 86,
+    "metrics": [
+      { "metric_name": "prompt_injection_resistance", "value": 0.87, "unit": "ratio", "score": 87 },
+      { "metric_name": "sandbox_escape_resistance", "value": 0.85, "unit": "ratio", "score": 85 },
+      { "metric_name": "human_override_controls", "value": 0.86, "unit": "ratio", "score": 86 }
+    ],
+    "summary": "Solid safeguards and human override patterns make AutoGen suitable for higher-control environments.",
+    "created_at": "2025-09-10T12:00:00Z"
+  },
+  {
+    "id": "bench-025",
+    "task_id": "task-025",
+    "agent_id": "agent-011",
+    "dimension": "functionality",
+    "overall_score": 80,
+    "metrics": [
+      { "metric_name": "analysis_accuracy", "value": 0.81, "unit": "ratio", "score": 81 },
+      { "metric_name": "code_generation_quality", "value": 0.80, "unit": "ratio", "score": 80 },
+      { "metric_name": "plugin_execution_success", "value": 0.79, "unit": "ratio", "score": 79 }
+    ],
+    "summary": "TaskWeaver performs particularly well on structured analytics and notebook-style workflows.",
+    "created_at": "2025-09-11T10:00:00Z"
+  },
+  {
+    "id": "bench-026",
+    "task_id": "task-026",
+    "agent_id": "agent-011",
+    "dimension": "security",
+    "overall_score": 75,
+    "metrics": [
+      { "metric_name": "code_sandboxing", "value": 0.76, "unit": "ratio", "score": 76 },
+      { "metric_name": "data_leakage_prevention", "value": 0.74, "unit": "ratio", "score": 74 },
+      { "metric_name": "plugin_isolation", "value": 0.75, "unit": "ratio", "score": 75 }
+    ],
+    "summary": "Security is adequate for controlled data environments, though plugin isolation can be strengthened.",
+    "created_at": "2025-09-11T12:00:00Z"
+  },
+  {
+    "id": "bench-027",
+    "task_id": "task-027",
+    "agent_id": "agent-012",
+    "dimension": "functionality",
+    "overall_score": 85,
+    "metrics": [
+      { "metric_name": "issue_resolution_rate", "value": 0.84, "unit": "ratio", "score": 84 },
+      { "metric_name": "code_execution_success", "value": 0.86, "unit": "ratio", "score": 86 },
+      { "metric_name": "browser_task_success", "value": 0.85, "unit": "ratio", "score": 85 }
+    ],
+    "summary": "OpenDevin handles end-to-end engineering workflows effectively, especially when browser interaction is required.",
+    "created_at": "2025-09-12T10:00:00Z"
+  },
+  {
+    "id": "bench-028",
+    "task_id": "task-028",
+    "agent_id": "agent-012",
+    "dimension": "performance",
+    "overall_score": 76,
+    "metrics": [
+      { "metric_name": "avg_latency_ms", "value": 4200, "unit": "ms", "score": 74 },
+      { "metric_name": "tokens_per_task", "value": 5600, "unit": "tokens", "score": 76 },
+      { "metric_name": "sandbox_startup_time_ms", "value": 1200, "unit": "ms", "score": 78 }
+    ],
+    "summary": "Sandbox setup adds overhead, but once running, execution remains stable and predictable.",
+    "created_at": "2025-09-12T11:00:00Z"
+  },
+  {
+    "id": "bench-029",
+    "task_id": "task-029",
+    "agent_id": "agent-012",
+    "dimension": "security",
+    "overall_score": 82,
+    "metrics": [
+      { "metric_name": "sandbox_escape_resistance", "value": 0.84, "unit": "ratio", "score": 84 },
+      { "metric_name": "credential_handling", "value": 0.81, "unit": "ratio", "score": 81 },
+      { "metric_name": "prompt_injection_resistance", "value": 0.81, "unit": "ratio", "score": 81 }
+    ],
+    "summary": "Sandboxing and explicit environment controls provide good baseline safety for coding tasks.",
+    "created_at": "2025-09-12T12:00:00Z"
+  },
+  {
+    "id": "bench-030",
+    "task_id": "task-030",
+    "agent_id": "agent-013",
+    "dimension": "functionality",
+    "overall_score": 90,
+    "metrics": [
+      { "metric_name": "issue_resolution_rate", "value": 0.91, "unit": "ratio", "score": 91 },
+      { "metric_name": "patch_correctness", "value": 0.89, "unit": "ratio", "score": 89 },
+      { "metric_name": "test_fix_success", "value": 0.90, "unit": "ratio", "score": 90 }
+    ],
+    "summary": "SWE-Agent shows excellent performance on repository-based bug fixing and benchmarked issue resolution.",
+    "created_at": "2025-09-13T10:00:00Z"
+  },
+  {
+    "id": "bench-031",
+    "task_id": "task-031",
+    "agent_id": "agent-013",
+    "dimension": "performance",
+    "overall_score": 83,
+    "metrics": [
+      { "metric_name": "avg_latency_ms", "value": 3400, "unit": "ms", "score": 82 },
+      { "metric_name": "tokens_per_issue", "value": 4900, "unit": "tokens", "score": 83 },
+      { "metric_name": "repo_navigation_efficiency", "value": 0.84, "unit": "ratio", "score": 84 }
+    ],
+    "summary": "The custom interface improves navigation efficiency, helping SWE-Agent stay performant on large repos.",
+    "created_at": "2025-09-13T11:00:00Z"
+  },
+  {
+    "id": "bench-032",
+    "task_id": "task-032",
+    "agent_id": "agent-014",
+    "dimension": "functionality",
+    "overall_score": 94,
+    "metrics": [
+      { "metric_name": "task_completion_rate", "value": 0.95, "unit": "ratio", "score": 95 },
+      { "metric_name": "code_quality", "value": 0.93, "unit": "ratio", "score": 93 },
+      { "metric_name": "deployment_success", "value": 0.94, "unit": "ratio", "score": 94 }
+    ],
+    "summary": "Devin delivers excellent end-to-end software engineering capability on long-horizon tasks.",
+    "created_at": "2025-09-14T10:00:00Z"
+  },
+  {
+    "id": "bench-033",
+    "task_id": "task-033",
+    "agent_id": "agent-014",
+    "dimension": "performance",
+    "overall_score": 87,
+    "metrics": [
+      { "metric_name": "avg_latency_ms", "value": 2800, "unit": "ms", "score": 88 },
+      { "metric_name": "context_window_efficiency", "value": 0.86, "unit": "ratio", "score": 86 },
+      { "metric_name": "retry_rate", "value": 0.08, "unit": "ratio", "score": 87 }
+    ],
+    "summary": "Strong planning reduces unnecessary retries, resulting in efficient completion of large engineering tasks.",
+    "created_at": "2025-09-14T11:00:00Z"
+  },
+  {
+    "id": "bench-034",
+    "task_id": "task-034",
+    "agent_id": "agent-014",
+    "dimension": "security",
+    "overall_score": 92,
+    "metrics": [
+      { "metric_name": "environment_isolation", "value": 0.93, "unit": "ratio", "score": 93 },
+      { "metric_name": "credential_handling", "value": 0.91, "unit": "ratio", "score": 91 },
+      { "metric_name": "human_override_controls", "value": 0.92, "unit": "ratio", "score": 92 }
+    ],
+    "summary": "Commercial environment controls and operator oversight contribute to a strong overall safety profile.",
+    "created_at": "2025-09-14T12:00:00Z"
+  },
+  {
+    "id": "bench-035",
+    "task_id": "task-035",
+    "agent_id": "agent-015",
+    "dimension": "functionality",
+    "overall_score": 79,
+    "metrics": [
+      { "metric_name": "issue_to_pr_success", "value": 0.80, "unit": "ratio", "score": 80 },
+      { "metric_name": "test_update_accuracy", "value": 0.78, "unit": "ratio", "score": 78 },
+      { "metric_name": "review_response_quality", "value": 0.79, "unit": "ratio", "score": 79 }
+    ],
+    "summary": "Sweep is strong at turning routine GitHub issues into PRs, especially for well-scoped changes.",
+    "created_at": "2025-09-15T10:00:00Z"
+  },
+  {
+    "id": "bench-036",
+    "task_id": "task-036",
+    "agent_id": "agent-015",
+    "dimension": "performance",
+    "overall_score": 72,
+    "metrics": [
+      { "metric_name": "avg_latency_ms", "value": 4100, "unit": "ms", "score": 71 },
+      { "metric_name": "tokens_per_pr", "value": 5200, "unit": "tokens", "score": 72 },
+      { "metric_name": "github_api_efficiency", "value": 0.74, "unit": "ratio", "score": 74 }
+    ],
+    "summary": "Reasonable end-to-end timing, though GitHub round trips can slow interactive iteration.",
+    "created_at": "2025-09-15T11:00:00Z"
+  },
+  {
+    "id": "bench-037",
+    "task_id": "task-037",
+    "agent_id": "agent-016",
+    "dimension": "functionality",
+    "overall_score": 91,
+    "metrics": [
+      { "metric_name": "code_edit_accuracy", "value": 0.92, "unit": "ratio", "score": 92 },
+      { "metric_name": "multi_file_success", "value": 0.90, "unit": "ratio", "score": 90 },
+      { "metric_name": "instruction_following", "value": 0.91, "unit": "ratio", "score": 91 }
+    ],
+    "summary": "Aider is highly effective for interactive pair programming and local repository edits.",
+    "created_at": "2025-09-16T10:00:00Z"
+  },
+  {
+    "id": "bench-038",
+    "task_id": "task-038",
+    "agent_id": "agent-016",
+    "dimension": "performance",
+    "overall_score": 88,
+    "metrics": [
+      { "metric_name": "avg_latency_ms", "value": 2100, "unit": "ms", "score": 89 },
+      { "metric_name": "tokens_per_edit", "value": 2800, "unit": "tokens", "score": 87 },
+      { "metric_name": "repo_map_generation_time_ms", "value": 650, "unit": "ms", "score": 88 }
+    ],
+    "summary": "Fast terminal workflow and concise edits make Aider one of the snappiest coding agents tested.",
+    "created_at": "2025-09-16T11:00:00Z"
+  },
+  {
+    "id": "bench-039",
+    "task_id": "task-039",
+    "agent_id": "agent-016",
+    "dimension": "security",
+    "overall_score": 88,
+    "metrics": [
+      { "metric_name": "diff_reviewability", "value": 0.90, "unit": "ratio", "score": 90 },
+      { "metric_name": "command_safety", "value": 0.87, "unit": "ratio", "score": 87 },
+      { "metric_name": "git_traceability", "value": 0.88, "unit": "ratio", "score": 88 }
+    ],
+    "summary": "Git-native workflow and explicit diffs improve auditability and operational safety.",
+    "created_at": "2025-09-16T12:00:00Z"
+  },
+  {
+    "id": "bench-040",
+    "task_id": "task-040",
+    "agent_id": "agent-017",
+    "dimension": "functionality",
+    "overall_score": 86,
+    "metrics": [
+      { "metric_name": "autocomplete_quality", "value": 0.87, "unit": "ratio", "score": 87 },
+      { "metric_name": "chat_helpfulness", "value": 0.85, "unit": "ratio", "score": 85 },
+      { "metric_name": "context_retrieval_accuracy", "value": 0.86, "unit": "ratio", "score": 86 }
+    ],
+    "summary": "Continue balances flexibility and capability well, especially for teams using mixed model backends.",
+    "created_at": "2025-09-17T10:00:00Z"
+  },
+  {
+    "id": "bench-041",
+    "task_id": "task-041",
+    "agent_id": "agent-017",
+    "dimension": "performance",
+    "overall_score": 82,
+    "metrics": [
+      { "metric_name": "autocomplete_latency_ms", "value": 320, "unit": "ms", "score": 84 },
+      { "metric_name": "indexing_time_ms", "value": 1800, "unit": "ms", "score": 80 },
+      { "metric_name": "memory_usage_mb", "value": 430, "unit": "MB", "score": 82 }
+    ],
+    "summary": "Responsive in-editor experience with acceptable indexing overhead for medium-sized repositories.",
+    "created_at": "2025-09-17T11:00:00Z"
+  },
+  {
+    "id": "bench-042",
+    "task_id": "task-042",
+    "agent_id": "agent-018",
+    "dimension": "functionality",
+    "overall_score": 87,
+    "metrics": [
+      { "metric_name": "code_search_context_quality", "value": 0.89, "unit": "ratio", "score": 89 },
+      { "metric_name": "chat_helpfulness", "value": 0.86, "unit": "ratio", "score": 86 },
+      { "metric_name": "multi_repo_navigation", "value": 0.86, "unit": "ratio", "score": 86 }
+    ],
+    "summary": "Cody shines on large codebases where Sourcegraph context materially improves suggestion quality.",
+    "created_at": "2025-09-18T10:00:00Z"
+  },
+  {
+    "id": "bench-043",
+    "task_id": "task-043",
+    "agent_id": "agent-018",
+    "dimension": "security",
+    "overall_score": 85,
+    "metrics": [
+      { "metric_name": "enterprise_access_controls", "value": 0.87, "unit": "ratio", "score": 87 },
+      { "metric_name": "data_leakage_prevention", "value": 0.84, "unit": "ratio", "score": 84 },
+      { "metric_name": "audit_logging", "value": 0.84, "unit": "ratio", "score": 84 }
+    ],
+    "summary": "Enterprise controls and logging make Cody a solid choice for larger organizations with compliance needs.",
+    "created_at": "2025-09-18T12:00:00Z"
+  },
+  {
+    "id": "bench-044",
+    "task_id": "task-044",
+    "agent_id": "agent-019",
+    "dimension": "functionality",
+    "overall_score": 75,
+    "metrics": [
+      { "metric_name": "autocomplete_quality", "value": 0.74, "unit": "ratio", "score": 74 },
+      { "metric_name": "self_hosting_usability", "value": 0.77, "unit": "ratio", "score": 77 },
+      { "metric_name": "repo_context_accuracy", "value": 0.75, "unit": "ratio", "score": 75 }
+    ],
+    "summary": "Tabby provides practical self-hosted coding assistance, especially where data residency is a top priority.",
+    "created_at": "2025-09-19T10:00:00Z"
+  },
+  {
+    "id": "bench-045",
+    "task_id": "task-045",
+    "agent_id": "agent-019",
+    "dimension": "performance",
+    "overall_score": 79,
+    "metrics": [
+      { "metric_name": "autocomplete_latency_ms", "value": 280, "unit": "ms", "score": 80 },
+      { "metric_name": "model_startup_time_ms", "value": 950, "unit": "ms", "score": 77 },
+      { "metric_name": "gpu_efficiency", "value": 0.80, "unit": "ratio", "score": 80 }
+    ],
+    "summary": "Local inference provides good interactive performance once the serving stack is warmed up.",
+    "created_at": "2025-09-19T11:00:00Z"
+  },
+  {
+    "id": "bench-046",
+    "task_id": "task-046",
+    "agent_id": "agent-019",
+    "dimension": "security",
+    "overall_score": 77,
+    "metrics": [
+      { "metric_name": "data_residency", "value": 0.92, "unit": "ratio", "score": 92 },
+      { "metric_name": "access_control_granularity", "value": 0.70, "unit": "ratio", "score": 70 },
+      { "metric_name": "audit_logging", "value": 0.69, "unit": "ratio", "score": 69 }
+    ],
+    "summary": "Tabby's self-hosted model is excellent for privacy, though enterprise control features are still maturing.",
+    "created_at": "2025-09-19T12:00:00Z"
+  },
+  {
+    "id": "bench-047",
+    "task_id": "task-047",
+    "agent_id": "agent-020",
+    "dimension": "functionality",
+    "overall_score": 95,
+    "metrics": [
+      { "metric_name": "code_edit_accuracy", "value": 0.96, "unit": "ratio", "score": 96 },
+      { "metric_name": "multi_file_success", "value": 0.95, "unit": "ratio", "score": 95 },
+      { "metric_name": "context_retrieval_accuracy", "value": 0.94, "unit": "ratio", "score": 94 }
+    ],
+    "summary": "Cursor Agent is among the strongest performers for IDE-based autonomous coding and refactoring tasks.",
+    "created_at": "2025-09-20T10:00:00Z"
+  },
+  {
+    "id": "bench-048",
+    "task_id": "task-048",
+    "agent_id": "agent-020",
+    "dimension": "performance",
+    "overall_score": 91,
+    "metrics": [
+      { "metric_name": "edit_latency_ms", "value": 1600, "unit": "ms", "score": 92 },
+      { "metric_name": "tokens_per_refactor", "value": 2500, "unit": "tokens", "score": 90 },
+      { "metric_name": "ide_responsiveness", "value": 0.91, "unit": "ratio", "score": 91 }
+    ],
+    "summary": "Tight IDE integration yields an unusually responsive experience for multi-file autonomous code changes.",
+    "created_at": "2025-09-20T11:00:00Z"
+  },
+  {
+    "id": "bench-049",
+    "task_id": "task-049",
+    "agent_id": "agent-020",
+    "dimension": "security",
+    "overall_score": 93,
+    "metrics": [
+      { "metric_name": "approval_workflow_strength", "value": 0.94, "unit": "ratio", "score": 94 },
+      { "metric_name": "command_safety", "value": 0.92, "unit": "ratio", "score": 92 },
+      { "metric_name": "diff_reviewability", "value": 0.93, "unit": "ratio", "score": 93 }
+    ],
+    "summary": "Human approval and visible diffs help Cursor Agent maintain a strong safety and review posture.",
+    "created_at": "2025-09-20T12:00:00Z"
+  },
+  {
+    "id": "bench-050",
+    "task_id": "task-050",
+    "agent_id": "agent-018",
+    "dimension": "performance",
+    "overall_score": 80,
+    "metrics": [
+      { "metric_name": "autocomplete_latency_ms", "value": 340, "unit": "ms", "score": 81 },
+      { "metric_name": "search_roundtrip_ms", "value": 900, "unit": "ms", "score": 79 },
+      { "metric_name": "index_refresh_time_ms", "value": 2100, "unit": "ms", "score": 80 }
+    ],
+    "summary": "Cody stays responsive in daily coding, with search context adding some but manageable overhead.",
+    "created_at": "2025-09-18T11:00:00Z"
+  }
+]

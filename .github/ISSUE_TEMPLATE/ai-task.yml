@@ -1,0 +1,40 @@
+name: AI 开发任务
+description: 创建一个 AI 可自动实现的开发任务
+labels: ["ai-task"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: 任务类型
+      options:
+        - 新功能
+        - Bug修复
+        - 重构
+        - 测试补充
+  - type: dropdown
+    id: scope
+    attributes:
+      label: 影响范围
+      options:
+        - frontend
+        - fullstack
+        - infra
+  - type: textarea
+    id: description
+    attributes:
+      label: 任务描述
+      description: 详细描述需要实现的功能
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收标准
+      description: 列出具体的验收条件
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: 上下文信息
+      description: 相关的 PRD 章节、依赖的其他 Issue、参考代码路径等

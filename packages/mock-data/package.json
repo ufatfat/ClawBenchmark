@@ -1,0 +1,11 @@
+{
+  "name": "@clawbenchmark/mock-data",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "files": ["*.json", "*.ts"],
+  "dependencies": {
+    "@clawbenchmark/types": "*"
+  }
+}
