@@ -8,9 +8,6 @@ on:
 
 jobs:
   implement:
-    if: |
-      (github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'ai-task')) ||
-      (github.event_name == 'issue_comment' && contains(github.event.issue.labels.*.name, 'ai-task') && github.event.comment.body == '/implement')
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -34,19 +31,15 @@ jobs:
           ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          direct_prompt: |
-            你是 ClawBenchmark 项目的全栈工程师。请根据以下 Issue 实现代码。
-
-            ## Issue
-            标题: ${{ github.event.issue.title }}
-            内容: ${{ github.event.issue.body }}
+          trigger_phrase: "/implement"
+          label_trigger: "ai-task"
+          prompt: |
+            你是 ClawBenchmark 项目的全栈工程师。请根据 Issue 内容实现代码。
 
             ## 要求
             1. 先阅读 CLAUDE.md 了解项目规范
             2. 阅读 docs/PRD.md 中与本 Issue 相关的章节
             3. 检查现有代码，理解当前架构和模式
             4. 实现功能代码 + 编写单元测试
-            5. 确保 build 通过
-            6. 创建 PR，标题格式：feat(scope): description (closes #${{ github.event.issue.number }})
-          allowed_tools: "Bash,Read,Write,Edit,Glob,Grep"
-          timeout_minutes: 30
+            5. 确保代码没有语法错误
+          claude_args: "--allowedTools Bash Read Write Edit Glob Grep"
