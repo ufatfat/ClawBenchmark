@@ -8,12 +8,14 @@ on:
 
 jobs:
   implement:
+    if: |
+      (github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'ai-task')) ||
+      (github.event_name == 'issue_comment' && contains(github.event.issue.labels.*.name, 'ai-task') && github.event.comment.body == '/implement')
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
       issues: write
-      id-token: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -22,25 +24,93 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
-      - run: npm ci
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
 
-      - uses: anthropics/claude-code-action@v1
+      - name: Run Claude Code
         env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
-        with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          trigger_phrase: "/implement"
-          label_trigger: "ai-task"
-          show_full_output: true
-          prompt: |
-            你是 ClawBenchmark 项目的全栈工程师。请根据 Issue 内容实现代码。
+        run: |
+          ISSUE_NUMBER="${{ github.event.issue.number }}"
+          ISSUE_TITLE="${{ github.event.issue.title }}"
+          ISSUE_BODY=$(cat <<'ISSUE_EOF'
+          ${{ github.event.issue.body }}
+          ISSUE_EOF
+          )
 
-            ## 要求
-            1. 先阅读 CLAUDE.md 了解项目规范
-            2. 阅读 docs/PRD.md 中与本 Issue 相关的章节
-            3. 检查现有代码，理解当前架构和模式
-            4. 实现功能代码 + 编写单元测试
-            5. 确保代码没有语法错误
-          claude_args: "--allowedTools Bash Read Write Edit Glob Grep"
+          echo "=== 开始处理 Issue #${ISSUE_NUMBER} ==="
+          echo "标题: ${ISSUE_TITLE}"
+
+          # 运行 Claude Code
+          claude --allowedTools Bash,Read,Write,Edit,Glob,Grep "
+          你是 ClawBenchmark 项目的全栈工程师。请根据以下 Issue 实现代码。
+
+          ## Issue #${ISSUE_NUMBER}
+          标题: ${ISSUE_TITLE}
+
+          内容:
+          ${ISSUE_BODY}
+
+          ## 要求
+          1. 先阅读 CLAUDE.md 了解项目规范
+          2. 阅读 docs/PRD.md 中与本 Issue 相关的章节
+          3. 检查现有代码，理解当前架构和模式
+          4. 实现功能代码
+          5. 确保代码没有语法错误
+          6. 不要运行 dev server 或任何长时间运行的命令
+          7. 完成后简要说明你做了什么
+          "
+
+      - name: Check for changes and create PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE_NUMBER="${{ github.event.issue.number }}"
+          ISSUE_TITLE="${{ github.event.issue.title }}"
+          BRANCH_NAME="ai/issue-${ISSUE_NUMBER}"
+
+          # 检查是否有变更
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "没有代码变更，跳过 PR 创建"
+            gh issue comment "$ISSUE_NUMBER" --body "⚠️ AI 未产生任何代码变更。可能需要人工介入或重新触发。"
+            exit 0
+          fi
+
+          echo "=== 检测到代码变更，准备创建 PR ==="
+
+          # 配置 git
+          git config user.name "claude-bot"
+          git config user.email "claude-bot@users.noreply.github.com"
+
+          # 创建分支
+          git checkout -b "$BRANCH_NAME"
+
+          # 提交变更
+          git add -A
+          git commit -m "feat: ${ISSUE_TITLE}
+
+          Closes #${ISSUE_NUMBER}
+
+          Co-Authored-By: Claude Code <noreply@anthropic.com>"
+
+          # 推送到远程
+          git push origin "$BRANCH_NAME"
+
+          # 创建 PR
+          gh pr create \
+            --title "feat: ${ISSUE_TITLE}" \
+            --body "## 自动实现 Issue #${ISSUE_NUMBER}
+
+          ${ISSUE_TITLE}
+
+          由 Claude Code 自动生成。
+
+          Closes #${ISSUE_NUMBER}
+
+          🤖 Generated with Claude Code" \
+            --base main \
+            --head "$BRANCH_NAME"
+
+          echo "=== PR 创建成功 ==="
