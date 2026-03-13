@@ -1,0 +1,27 @@
+# ClawBenchmark
+
+node_modules/
+dist/
+*.log
+.DS_Store
+.env
+.env.local
+
+# Backend
+backend/server
+backend/coverage.out
+backend/*.exe
+
+# Frontend
+frontend/dist/
+frontend/node_modules/
+frontend/.vite/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+docker-compose.override.yml
